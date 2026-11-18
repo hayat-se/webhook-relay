@@ -81,8 +81,7 @@ func (t target) deliver(event string, body []byte) error {
 func handler(cfg *config) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/health" {
-			fmt.Fprintf(w, "ok rules=%d
-", len(cfg.Rules))
+		fmt.Fprintf(w, "ok rules=%d\n", len(cfg.Rules))
 			return
 		}
 		event := r.Header.Get("X-GitHub-Event")
@@ -110,8 +109,7 @@ func handler(cfg *config) http.HandlerFunc {
 			}
 		}
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprintf(w, "relayed=%d
-", matched)
+		fmt.Fprintf(w, "relayed=%d\n", matched)
 	}
 }
 
