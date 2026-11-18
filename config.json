@@ -1,0 +1,10 @@
+{
+  "listen": ":8080",
+  "rules": [
+    {
+      "repo": "hayat-se/webhook-relay",
+      "events": ["push", "release"],
+      "target": { "url": "http://127.0.0.1:9000/hook" }
+    }
+  ]
+}
